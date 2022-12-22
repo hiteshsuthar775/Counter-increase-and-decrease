@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .head-text {
+        font-size: 4rem;
+        color: gray;
+      }
+      .main_container {
+        height: 15rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+      }
+      .main-display {
+        font-weight: 700;
+
+        font-size: 6rem;
+      }
+      button {
+        padding: 0.5rem;
+        border: 2px solid black;
+        background-color: white;
+        border-radius: 0.5rem;
+        width: 6rem;
+        font-size: 0.8rem;
+        color: black;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: black;
+        color: white;
+        transition: all linear 0.4s;
+      }
+      .btn-conatiner {
+        display: flex;
+        gap: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main_container">
+      <div><p class="head-text">Counter</p></div>
+      <div><span class="main-display">0</span></div>
+      <div class="btn-conatiner">
+        <button id="Increase">Increase+</button>
+        <button id="Reset">Rest</button>
+        <button id="Decrease">Decrease-</button>
+      </div>
+    </div>
+    <script>
+      let number = document.querySelector(".main-display");
+      let count = 0;
+
+      //   number = Number.parseInt(number);
+      number.innerHTML = 0;
+      document
+        .querySelector("#Increase")
+        .addEventListener("click", function () {
+          let number = document.querySelector(".main-display");
+          number.innerHTML = ++count;
+          if (count < 0) {
+            number.style.color = "red";
+          } else if (count > 0) {
+            number.style.color = "green";
+          }
+        });
+      document
+        .querySelector("#Decrease")
+        .addEventListener("click", function () {
+          let number = document.querySelector(".main-display");
+          number.innerHTML = --count;
+          if (count < 0) {
+            number.style.color = "red";
+          } else if (count > 0) {
+            number.style.color = "green";
+          }
+        });
+      document.querySelector("#Reset").addEventListener("click", function () {
+        let number = document.querySelector(".main-display");
+        number.innerHTML = count = 0;
+        number.style.color = "black";
+      });
+    </script>
+  </body>
+</html>
